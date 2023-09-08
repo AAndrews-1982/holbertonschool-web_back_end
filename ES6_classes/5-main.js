@@ -3,11 +3,11 @@ import Building from './5-building.js';
 const b = new Building(100);
 console.log(b);
 
-class TestBuilding extends Building {
-  evacuationWarningMessage() {
-    return 'This is a test evacuation warning message.';
-  }
-}
+class TestBuilding extends Building {}
 
-const testBuilding = new TestBuilding(200);
-console.log(testBuilding.evacuationWarningMessage()); // Output: "This is a test evacuation warning message."
+try {
+    new TestBuilding(200)
+}
+catch(err) {
+    console.log(err);
+}
