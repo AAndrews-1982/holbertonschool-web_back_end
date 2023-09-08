@@ -1,15 +1,16 @@
 export default class Building {
-  constructor(sqft) {
+  constructor(sqft) {i
+  if (this.constructor !== Building && !this.evacuationWarningMessage === undefined) {
+      throw Error('Class extending Building must override evacuationWarningMessage');
+    }
+    this._sqft = sqft;
+  }
+
+  set sqft(sqft) {
     this._sqft = sqft;
   }
 
   get sqft() {
     return this._sqft;
   }
-
-  // Abstract method that should be implemented by subclasses
-  evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
-  }
 }
-
