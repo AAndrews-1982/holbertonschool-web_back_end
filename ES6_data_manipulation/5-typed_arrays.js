@@ -10,7 +10,11 @@ function setInt8Value(pos, val) {
     view.setInt8(pos, val);
   }
 
-  setInt8Value(position, value);
+  try {
+    setInt8Value(position, value);
+  } catch (error) {
+    throw new Error('Value is not a valid Int8');
+  }
 
   return view.buffer;
 }
