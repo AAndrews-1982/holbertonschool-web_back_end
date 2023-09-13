@@ -3,7 +3,7 @@ export default function cleanSet(set, startString) {
     return '';
   }
 
-   const newStringSet = new Set();
+  const newStringSet = new Set();
 
   for (const str of set) {
     if (str) {
