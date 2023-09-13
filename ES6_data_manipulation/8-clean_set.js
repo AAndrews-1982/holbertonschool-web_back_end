@@ -3,6 +3,17 @@ export default function cleanSet(set, startString) {
     return '';
   }
 
-  const filteredValues = [...set].filter(value => typeof value === 'string' && value.startsWith(startString));
-  return filteredValues.join('-');
+   const newStringSet = new Set();
+
+  for (const str of set) {
+    if (str) {
+      if (str.includes(startString)) {
+        newStringSet.add(str.replace(startString, ''));
+      }
+    }
+  }
+
+  const newArraySet = Array.from(newStringSet);
+  const finalString = newArraySet.join('-');
+  return finalString;
 }
