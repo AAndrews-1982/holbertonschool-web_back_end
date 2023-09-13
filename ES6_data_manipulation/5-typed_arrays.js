@@ -6,15 +6,10 @@ export default function createInt8TypedArray(length, position, value) {
   const buffer = new ArrayBuffer(length);
   const view = new DataView(buffer);
 
-function setInt8Value(pos, val) {
-    view.setInt8(pos, val);
-  }
-
-  try {
-    setInt8Value(position, value);
-  } catch (error) {
+if (value < -128 || value > 127 || !Number.isInteger(value)) {
     throw new Error('Value is not a valid Int8');
   }
 
-  return view.buffer;
+  view.setInt8(position, value);
+  return view;
 }
